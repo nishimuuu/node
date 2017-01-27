@@ -193,6 +193,14 @@ addTest('\x1b[31ma\x1b[39ma', [
   { name: 'a', sequence: 'a' },
 ]);
 
+// escape and clear sequences
+addTest('\x1b[F\x1b[E\x1b[F\x1b[E', [
+ { name: 'end', sequence: '\x1b[F', code: '[F' },
+ { name: 'clear', sequence: '\x1b[E', code: '[E' },
+ { name: 'end', sequence: '\x1b[F', code: '[F' },
+ { name: 'clear', sequence: '\x1b[E', code: '[E' },
+]);
+
 // Reduce array of addKeyIntervalTest(..) right to left
 // with () => {} as initial function
 const runKeyIntervalTests = [
