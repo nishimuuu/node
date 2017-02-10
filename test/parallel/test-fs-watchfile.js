@@ -63,3 +63,8 @@ fs.watchFile(enoentFile, {interval: 0}, common.mustCall(function(curr, prev) {
     fs.unwatchFile(enoentFile);
   }
 }, 2));
+
+// to check unwatchFile function argument: listener
+const listener = () => {};
+fs.watchFile('./some-file', {}, listener);
+fs.unwatchFile('./some-file', listener);
